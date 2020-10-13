@@ -87,13 +87,6 @@ create_dune_file() {
     rm $basedir/$modname.ml
 }
 
-    findlibname=$1
-    dirname=$2
-    modname=$3
-    cfile=$4
-    depends=$5
-    components=$6
-
 # -------------- public name -------- directory ---------------- module name -------- C file name --------- OCaml dependencies -------------- LLVM components (for the linker)
 create_dune_file llvm                 llvm                       llvm                 llvm_ocaml            ""                                "core support"
 create_dune_file llvm.analysis        analysis                   llvm_analysis        analysis_ocaml        "llvm"                            "analysis"
