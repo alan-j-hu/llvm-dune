@@ -1,5 +1,15 @@
 #!/bin/sh -ex
 
+if test "$(dirname $0)" != '.'; then
+    echo "The script must be executed from its current directory."
+    exit 1
+fi
+
+if test "$#" -ne 1; then
+    echo "Usage: $0 <llvm-config>"
+    exit 1
+fi
+
 llvm_config=$1
 default_mode=
 support_static_mode=false
@@ -17,6 +27,11 @@ fi
 if llvm_config --link-shared --libs; then
     default_mode=shared
     support_shared_mode=true
+fi
+
+if test -z "$default_mode"; then
+    echo "Something is wrong with the llvm-config command provided."
+    exit 1
 fi
 
 base_cflags=$(llvm_config --cflags)
