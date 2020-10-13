@@ -1,0 +1,4 @@
+[submodule "llvm-project"]
+	path = llvm-project
+	url = git://github.com/llvm/llvm-project.git
+	branch = release/11.x
