@@ -12,6 +12,7 @@ homepage: "http://llvm.moe"
 build: [
   ["./setup.sh" conf-llvm:config]
   ["dune" "build" "--release" "-j" jobs]
+  ["sh" "-exc" "rm -f *.install"]
 ]
 install: [
   ["./install.sh" prefix]
