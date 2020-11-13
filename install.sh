@@ -12,7 +12,7 @@ dune install "--prefix=$PREFIX" --release
 for pkg in $(basename -s .opam *.opam); do 
     case "$pkg" in
     llvm)
-        cp META.llvm "$PREFIX/lib/llvm/META";;
+        cp META.llvm.in "$PREFIX/lib/llvm/META";;
     llvm_*)
         target=$(echo "$pkg" | cut -d_ -f2-)
         sed "s/@TARGET@/$target/g" META.llvm_TARGET.in > "$PREFIX/lib/llvm_$target/META";;
