@@ -1,4 +1,4 @@
 /_build
-/build
+/src
 *.install
 llvm_*.opam

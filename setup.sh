@@ -38,8 +38,8 @@ base_cflags=$(llvm_config --cflags)
 ldflags="$(llvm_config --ldflags) -lstdc++"
 llvm_targets=$(llvm_config --targets-built)
 
-rm -rf build
-cp -r llvm-project/llvm/bindings/ocaml build
+rm -rf src
+cp -r llvm-project/llvm/bindings/ocaml src
 
 create_dune_file() {
     findlibname=$1
@@ -50,14 +50,14 @@ create_dune_file() {
     components=$6
 
     if test "$dirname" = "backends"; then
-        basedir=build/$dirname/$components
+        basedir=src/$dirname/$components
         test ! -d "$basedir" && mkdir "$basedir"
-        sed "s/@TARGET@/$components/g" "build/$dirname/llvm_backend.ml.in" > "$basedir/$modname.ml"
-        sed "s/@TARGET@/$components/g" "build/$dirname/llvm_backend.mli.in" > "$basedir/$modname.mli"
-        sed "s/@TARGET@/$components/g" "build/$dirname/backend_ocaml.c" > "$basedir/$cfile.c"
+        sed "s/@TARGET@/$components/g" "src/$dirname/llvm_backend.ml.in" > "$basedir/$modname.ml"
+        sed "s/@TARGET@/$components/g" "src/$dirname/llvm_backend.mli.in" > "$basedir/$modname.mli"
+        sed "s/@TARGET@/$components/g" "src/$dirname/backend_ocaml.c" > "$basedir/$cfile.c"
         cflags="$base_cflags \"-DTARGET=$components\""
     else
-        basedir=build/$dirname
+        basedir=src/$dirname
         cflags=$base_cflags
     fi
 
