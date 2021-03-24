@@ -1,10 +1,11 @@
 opam-version: "2.0"
 maintainer: "Kate <kit.ty.kate@disroot.org>"
 authors: [
+  "Gordon Henriksen <gordonhenriksen@mac.com>"
   "whitequark <whitequark@whitequark.org>"
   "The LLVM team"
 ]
-license: "Apache-2.0 WITH LLVM-exception"
+license: "Apache-2.0 with LLVM-exception"
 doc: "http://llvm.moe/ocaml"
 bug-reports: "http://llvm.org/bugs/"
 dev-repo: "git+https://github.com/kit-ty-kate/llvm-dune.git"
