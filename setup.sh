@@ -142,6 +142,7 @@ create_dune_file     llvm.vectorize       transforms/vectorize       llvm_vector
 create_dune_file     llvm.passmgr_builder transforms/passmgr_builder llvm_passmgr_builder passmgr_builder_ocaml "llvm"                            "ipo"
 create_dune_file     llvm.target          target                     llvm_target          target_ocaml          "llvm"                            "target"
 create_dune_file     llvm.linker          linker                     llvm_linker          linker_ocaml          "llvm"                            "linker"
+create_dune_file     llvm.debuginfo       debuginfo                  llvm_debuginfo       debuginfo_ocaml       "llvm"                            "core"
 create_dune_file     llvm.all_backends    all_backends               llvm_all_backends    all_backends_ocaml    "llvm"                            "$llvm_targets"
 
 for target in $llvm_targets; do
