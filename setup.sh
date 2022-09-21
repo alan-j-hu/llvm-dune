@@ -24,8 +24,8 @@ llvm_config() {
 
 llvm_version=$(llvm_config --version)
 case "$llvm_version" in
-11.*.*) ;;
-*) echo "LLVM version does not match. Expected '11.*.*' but got '$llvm_version'"; exit 1
+12.*.*) ;;
+*) echo "LLVM version does not match. Expected '12.*.*' but got '$llvm_version'"; exit 1
 esac
 
 if llvm_config --link-static --libs; then
