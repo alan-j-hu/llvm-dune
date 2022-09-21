@@ -30,4 +30,6 @@ find llvm-project \
 
 VERSION=$(cat VERSION)
 
-tar cvf "llvm-dune-full-minified-${VERSION}.tar.gz" $(git ls-files)
+mkdir "llvm-dune-full-minified-${VERSION}"
+cp -r $(git ls-files) "llvm-dune-full-minified-${VERSION}/"
+tar cvzf "llvm-dune-full-minified-${VERSION}.tar.gz" "llvm-dune-full-minified-${VERSION}"
