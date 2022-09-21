@@ -22,11 +22,12 @@ llvm_config() {
     "$llvm_config" $@
 }
 
-llvm_version=$(llvm_config --version)
-case "$llvm_version" in
-12.*.*) ;;
-*) echo "LLVM version does not match. Expected '12.*.*' but got '$llvm_version'"; exit 1
-esac
+llvm_version=$(llvm_config --version | cut -d. -f1)
+expected_version=$(cat VERSION | cut -d. -f1)
+if test "$llvm_version" != "$expected_version"; then
+  echo "LLVM version does not match. Expected '$expected_version' but got '$llvm_version'"
+  exit 1
+fi
 
 if llvm_config --link-static --libs; then
     default_mode=static

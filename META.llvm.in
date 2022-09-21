@@ -1,4 +1,4 @@
-version = "12.0.1"
+version = "@VERSION@"
 description = "LLVM OCaml bindings"
 directory(-llvm.static) = "shared"
 archive(byte, -llvm.static) = "llvm_shared.cma"
@@ -9,7 +9,7 @@ archive(native, llvm.static) = "llvm_static.cmxa"
 
 package "analysis" (
     requires = "llvm"
-    version = "12.0.1"
+    version = "@VERSION@"
     description = "Intermediate representation analysis for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_analysis_shared.cma"
@@ -21,7 +21,7 @@ package "analysis" (
 
 package "bitreader" (
     requires = "llvm"
-    version  = "12.0.1"
+    version  = "@VERSION@"
     description = "Bitcode reader for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_bitreader_shared.cma"
@@ -33,7 +33,7 @@ package "bitreader" (
 
 package "bitwriter" (
     requires = "llvm,unix"
-    version = "12.0.1"
+    version = "@VERSION@"
     description = "Bitcode writer for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_bitwriter_shared.cma"
@@ -45,7 +45,7 @@ package "bitwriter" (
 
 package "executionengine" (
     requires = "llvm,llvm.target,ctypes.foreign"
-    version = "12.0.1"
+    version = "@VERSION@"
     description = "JIT and Interpreter for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_executionengine_shared.cma"
@@ -57,7 +57,7 @@ package "executionengine" (
 
 package "ipo" (
     requires = "llvm"
-    version  = "12.0.1"
+    version  = "@VERSION@"
     description = "IPO Transforms for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_ipo_shared.cma"
@@ -69,7 +69,7 @@ package "ipo" (
 
 package "irreader" (
     requires = "llvm"
-    version  = "12.0.1"
+    version  = "@VERSION@"
     description = "IR assembly reader for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_irreader_shared.cma"
@@ -81,7 +81,7 @@ package "irreader" (
 
 package "scalar_opts" (
     requires = "llvm"
-    version = "12.0.1"
+    version = "@VERSION@"
     description = "Scalar Transforms for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_scalar_opts_shared.cma"
@@ -93,7 +93,7 @@ package "scalar_opts" (
 
 package "transform_utils" (
     requires = "llvm"
-    version = "12.0.1"
+    version = "@VERSION@"
     description = "Transform utilities for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_transform_utils_shared.cma"
@@ -105,7 +105,7 @@ package "transform_utils" (
 
 package "vectorize" (
     requires = "llvm"
-    version = "12.0.1"
+    version = "@VERSION@"
     description = "Vector Transforms for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_vectorize_shared.cma"
@@ -117,7 +117,7 @@ package "vectorize" (
 
 package "passmgr_builder" (
     requires = "llvm"
-    version = "12.0.1"
+    version = "@VERSION@"
     description = "Pass Manager Builder for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_passmgr_builder_shared.cma"
@@ -129,7 +129,7 @@ package "passmgr_builder" (
 
 package "target" (
     requires = "llvm"
-    version  = "12.0.1"
+    version  = "@VERSION@"
     description = "Target Information for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_target_shared.cma"
@@ -141,7 +141,7 @@ package "target" (
 
 package "linker" (
     requires = "llvm"
-    version  = "12.0.1"
+    version  = "@VERSION@"
     description = "Intermediate Representation Linker for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_linker_shared.cma"
@@ -153,7 +153,7 @@ package "linker" (
 
 package "all_backends" (
     requires = "llvm"
-    version  = "12.0.1"
+    version  = "@VERSION@"
     description = "All backends for LLVM"
     directory(-llvm.static) = "shared"
     archive(byte, -llvm.static) = "llvm_all_backends_shared.cma"
