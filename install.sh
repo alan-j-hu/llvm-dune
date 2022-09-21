@@ -1,4 +1,7 @@
-#!/bin/sh -ex
+#!/bin/sh
+
+set -e
+set -x
 
 if test "$#" != 1; then
     echo "Usage: $0 <prefix>"

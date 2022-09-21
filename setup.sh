@@ -1,4 +1,7 @@
-#!/bin/sh -ex
+#!/bin/sh
+
+set -e
+set -x
 
 if test "$(dirname $0)" != '.'; then
     echo "The script must be executed from its current directory."
@@ -18,6 +21,12 @@ support_shared_mode=false
 llvm_config() {
     "$llvm_config" $@
 }
+
+llvm_version=$(llvm_config --version)
+case "$llvm_version" in
+11.*.*) ;;
+*) echo "LLVM version does not match. Expected '11.*.*' but got '$llvm_version'"; exit 1
+esac
 
 if llvm_config --link-static --libs; then
     default_mode=static
