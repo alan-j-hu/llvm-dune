@@ -88,6 +88,7 @@ create_dune_file() {
         test ! -d "$basedir/shared" && mkdir "$basedir/shared"
         cp "$basedir/$modname.ml" "$basedir/shared"
         cp "$basedir/$cfile.c" "$basedir/shared"
+        cp "src/llvm/llvm_ocaml.h" "$basedir/shared"
 
         echo "
 (library
@@ -97,6 +98,7 @@ create_dune_file() {
  (foreign_stubs
   (language c)
   (names ${cfile})
+  (extra_deps llvm_ocaml.h)
   (flags ($cflags)))
  (c_library_flags ($ldflags $(llvm_config --system-libs --link-shared --libs $components))))
 " >> "$basedir/shared/dune"
@@ -106,6 +108,7 @@ create_dune_file() {
         test ! -d "$basedir/static" && mkdir "$basedir/static"
         cp "$basedir/$modname.ml" "$basedir/static"
         cp "$basedir/$cfile.c" "$basedir/static"
+        cp "src/llvm/llvm_ocaml.h" "$basedir/static"
 
         echo "
 (library
@@ -115,6 +118,7 @@ create_dune_file() {
  (foreign_stubs
   (language c)
   (names ${cfile})
+  (extra_deps llvm_ocaml.h)
   (flags ($cflags)))
  (c_library_flags ($ldflags $(llvm_config --system-libs --link-static --libs $components))))
 " >> "$basedir/static/dune"
