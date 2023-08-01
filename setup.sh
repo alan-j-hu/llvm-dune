@@ -133,7 +133,7 @@ create_dune_file     llvm                 llvm                       llvm       
 create_dune_file     llvm.analysis        analysis                   llvm_analysis        analysis_ocaml        "llvm"                            "analysis"
 create_dune_file     llvm.bitreader       bitreader                  llvm_bitreader       bitreader_ocaml       "llvm"                            "bitreader"
 create_dune_file     llvm.bitwriter       bitwriter                  llvm_bitwriter       bitwriter_ocaml       "llvm unix"                       "bitwriter"
-create_dune_file     llvm.executionengine executionengine            llvm_executionengine executionengine_ocaml "llvm llvm.target ctypes.foreign" "executionengine mcjit native"
+create_dune_file     llvm.executionengine executionengine            llvm_executionengine executionengine_ocaml "llvm llvm.target ctypes"         "executionengine mcjit native"
 create_dune_file     llvm.ipo             transforms/ipo             llvm_ipo             ipo_ocaml             "llvm"                            "ipo"
 create_dune_file     llvm.irreader        irreader                   llvm_irreader        irreader_ocaml        "llvm"                            "irreader"
 create_dune_file     llvm.scalar_opts     transforms/scalar_opts     llvm_scalar_opts     scalar_opts_ocaml     "llvm"                            "scalaropts"
