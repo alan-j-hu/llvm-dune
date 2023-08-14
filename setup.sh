@@ -8,13 +8,13 @@ if test "$(dirname $0)" != '.'; then
     exit 1
 fi
 
-if test "$#" -ne 1; then
-    echo "Usage: $0 <llvm-config>"
+if test "$#" -ne 2; then
+    echo "Usage: $0 <llvm-config> <default-mode>"
     exit 1
 fi
 
 llvm_config=$1
-default_mode=
+default_mode=$2
 support_static_mode=false
 support_shared_mode=false
 
@@ -29,14 +29,15 @@ if test "$llvm_version" != "$expected_version"; then
   exit 1
 fi
 
-if llvm_config --link-static --libs; then
-    default_mode=static
-    support_static_mode=true
-fi
 
 if llvm_config --link-shared --libs; then
-    default_mode=shared
+    default_mode=${default_mode:=shared}
     support_shared_mode=true
+fi
+
+if llvm_config --link-static --libs; then
+    default_mode=${default_mode:=static}
+    support_static_mode=true
 fi
 
 if test -z "$default_mode"; then
@@ -45,7 +46,7 @@ if test -z "$default_mode"; then
 fi
 
 base_cflags=$(llvm_config --cflags)
-ldflags="$(llvm_config --ldflags) -lstdc++"
+ldflags="$(pkg-config --libs-only-L libzstd) $(llvm_config --ldflags) -lstdc++"
 llvm_targets=$(llvm_config --targets-built)
 
 rm -rf src
