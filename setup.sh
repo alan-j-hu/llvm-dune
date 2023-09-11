@@ -3,11 +3,7 @@
 set -e
 set -x
 
-if test "$(dirname $0)" != '.'; then
-    echo "The script must be executed from its current directory."
-    exit 1
-fi
-
+cd "$(dirname "$0")"
 if test "$#" -ne 1; then
     echo "Usage: $0 <llvm-config>"
     exit 1
