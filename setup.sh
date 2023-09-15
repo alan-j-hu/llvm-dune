@@ -3,7 +3,7 @@
 set -e
 set -x
 
-if test "$(dirname $0)" != '.'; then
+if test ! "$(dirname $0)" -ef '.'; then
     echo "The script must be executed from its current directory."
     exit 1
 fi
