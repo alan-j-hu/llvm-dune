@@ -23,6 +23,7 @@ depends: [
   "dune" {>= "2.7"}
   "ctypes" {>= "0.4"}
   "conf-llvm" {build & = version}
+  "conf-pkg-config"
 ]
 synopsis: "The OCaml bindings distributed with LLVM"
 description: "Note: LLVM should be installed first."

@@ -45,7 +45,9 @@ if test -z "$default_mode"; then
 fi
 
 base_cflags=$(llvm_config --cflags)
-ldflags="$(llvm_config --ldflags) -lstdc++"
+# pkg-config libzstd necessary because Homebrew installs it in nonconventional
+# location on Apple Silicon Macs
+ldflags="$(llvm_config --ldflags) -lstdc++ $(pkg-config libzstd --libs)"
 llvm_targets=$(llvm_config --targets-built)
 
 rm -rf src
