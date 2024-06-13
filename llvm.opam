@@ -1,6 +1,7 @@
 opam-version: "2.0"
 maintainer: "Alan Hu <hu.ala@northeastern.edu>"
 authors: [
+  "Alan Hu <hu.ala@northeastern.edu>"
   "Kate <kit-ty-kate@outlook.com>"
   "Gordon Henriksen <gordonhenriksen@mac.com>"
   "whitequark <whitequark@whitequark.org>"
