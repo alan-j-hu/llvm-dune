@@ -14,7 +14,7 @@ dev-repo: "git+https://github.com/alan-j-hu/llvm-dune.git"
 homepage: "http://llvm.moe"
 build: [
   ["./setup.sh" conf-llvm:config]
-  ["dune" "build" "--release" "-j" jobs]
+  ["dune" "build" "-p" name "-j" jobs]
   ["rm" "%{name}%.install"]
 ]
 install: [
